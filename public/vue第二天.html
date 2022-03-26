@@ -5,19 +5,85 @@
     <title>Title</title>
 </head>
 <body>
+<!-- 2.html结构-->
 <div id="app">
     <h2 v-text="message + '!'"></h2>
     <h2 v-text="info + '!'"></h2>
-
+    <p v-html="content"></p>
+    <input type="button" value="v-on简写指令" @click="doIt">
+    <input type="button" value="v-on指令" v-on:click="doIt">
+    <input type="button" value="双击事件" v-on:dblclick="doIt">
+    <input type="button" value="累加年龄" @click="addAge">
+    <input type="button" value="切换显示状态" @click="changeIsShow">
+    <h2 @click="changeFood" v-text="food"></h2>
+    <img v-show="isShow" src= "img.png" alt="">
+    <img v-show="age>=18" src= "img2.png" alt="">
+    <p v-if="isShow">2333</p>
+    <p v-show="isShow">2333</p>
 </div>
+
+<div id="count">
+    <button @click="sub">-</button>
+    <span v-text="number"></span>
+    <button @click="add">+</button>
+</div>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script>
     var app = new Vue({
         el:"#app",
         data:{
             message:"萌新",
-            info:"程序部"
+            info:"加油学习前端第二天！",
+            content:"<a href='https://baidu.com'>百度</a>",
+            food:"(点我看看）西兰花炒蛋",
+            age:17,
+            isShow:false,
+        },
+        methods:{
+            doIt:function (){
+                alert("做it")
+            },
+            changeFood:function (){
+                console.log(this.food);
+                this.food+="好好吃！"
+            },
+            changeIsShow:function (){
+                this.isShow = !this.isShow;
+            },
+            addAge:function (){
+                this.age++;
+            }
         }
     })
+
+    var app = new Vue({
+        el:"#count",
+        data:{
+            number:0
+        },
+        methods:{
+            add:function (){
+                // console.log('add');
+                if(this.number<10){
+                    this.number++;
+                }else{
+                    alert('别点啦，最大啦！');
+                }
+            },
+            sub:function (){
+                // console.log('sub');
+                if(this.number>0){
+                    this.number--;
+                }else{
+                    alert('别点啦，最小啦！');
+                }
+            }
+        }
+    }
+
+    )
 </script>
 </body>
 </html>
