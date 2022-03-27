@@ -1,0 +1,30 @@
+#mask .center{
+    position: relative;
+    background-position: center;
+}
+
+#mask .swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    z-index: 10;
+    cursor: pointer;
+    outline: none;
+}
+#mask .swiper-button-prev {
+    right:auto;
+    background: no-repeat,-84px 50%;
+    left: 0;
+}
+#mask .swiper-button-next {
+    right: 0;
+    background: no-repeat,-125px 50%;
+    left: auto;
+}
+#mask center .swiper-button-prev,  .swiper-button-next {
+    background:  no-repeat -84px 50%;
+    left: 0;
+    right: auto;
+}
