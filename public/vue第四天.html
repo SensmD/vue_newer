@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue第四天</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="添加数据" @click="add">
+    <input type="button" value="移除数据" @click="remove">
+    <ul>
+        <li v-for="(area,index) in arr">
+            {{index+1}}我喜欢的地方：{{ area }}
+        </li>
+    </ul>
+    <h2 v-for="item in vegetables" v-bind:title="item.name">
+        {{item.name}}
+    </h2>
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue(
+        {
+            el:"#app",
+            data:{
+                arr:["北京","上海","广州","深圳"],
+                vegetables:[
+                    {name:"西兰花"},
+                    {name:"土豆"}
+                ]
+            },
+            methods: {
+                add: function () {
+                    this.vegetables.push({name: "番茄"});
+                },
+                remove:function (){
+                    this.vegetables.shift();
+                }
+            }
+        }
+    )
+</script>
+</body>
+</html>
